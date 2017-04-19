@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 60px;
+  
+  &__title {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  &__basket {
+    cursor: pointer;
+  }
+}

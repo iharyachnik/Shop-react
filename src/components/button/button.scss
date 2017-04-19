@@ -1,0 +1,11 @@
+.button {
+  background-color: white;
+  border: 2px solid black;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 8px 40px;
+
+  &:focus {
+    outline: none;
+  }
+}
