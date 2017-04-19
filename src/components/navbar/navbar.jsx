@@ -13,18 +13,18 @@ const navbar = () => {
         Men's Outerwear
       </Link>
       <Link
-        to='/mens-tshirts'
-        className='navbar__link'
-        activeClassName='navbar__link--active'
-      >
-        Men's T-Shirts
-      </Link>
-      <Link
         to='/ladies-outerwear'
         className='navbar__link'
         activeClassName='navbar__link--active'
       >
         Ladies Outerwear
+      </Link>
+      <Link
+        to='/mens-tshirts'
+        className='navbar__link'
+        activeClassName='navbar__link--active'
+      >
+        Men's T-Shirts
       </Link>
       <Link
         to='/ladies-tshirts'

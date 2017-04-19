@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import { Link } from 'react-router';
 
 import './category-header.scss';
 
@@ -9,6 +10,7 @@ const categoryHeader = (props) => {
     titleClassName,
     title,
     children,
+    to,
   } = props;
 
   const containerClass = classnames('category-header', containerClassName);
@@ -17,7 +19,9 @@ const categoryHeader = (props) => {
 
   return (
     <div className={containerClass}>
-      <div className={imageClass}></div>
+      <Link to={to}>
+        <div className={imageClass}></div>
+      </Link>
       <div className={titleClass}>
         {title}
       </div>
