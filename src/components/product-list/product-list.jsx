@@ -22,6 +22,7 @@ class ProductList extends React.Component {
       <Layout>
         <CategoryHeader
           category={category}
+          titleClassName='category-header__title--no-margin-bottom'
         >
           <span className='category-header__subtitle'>(16 items)</span>
         </CategoryHeader>
