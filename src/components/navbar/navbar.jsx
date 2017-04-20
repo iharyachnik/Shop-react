@@ -1,38 +1,25 @@
 import { Link } from 'react-router';
 
+import { CATEGORY_CONSTANTS_ENUM, CATEGORY_CONSTANTS, CATEGORY_NAMES } from 'config/category.constants';
+
 import './navbar.scss';
 
 const navbar = () => {
   return (
     <nav className='navbar'>
-      <Link
-        to='/mens-outerwear'
-        className='navbar__link'
-        activeClassName='navbar__link--active'
-      >
-        Men's Outerwear
-      </Link>
-      <Link
-        to='/ladies-outerwear'
-        className='navbar__link'
-        activeClassName='navbar__link--active'
-      >
-        Ladies Outerwear
-      </Link>
-      <Link
-        to='/mens-tshirts'
-        className='navbar__link'
-        activeClassName='navbar__link--active'
-      >
-        Men's T-Shirts
-      </Link>
-      <Link
-        to='/ladies-tshirts'
-        className='navbar__link'
-        activeClassName='navbar__link--active'
-      >
-        Ladies T-Shirts
-      </Link>
+      {
+        Object.keys(CATEGORY_CONSTANTS_ENUM).map(category => {
+          return (
+            <Link
+              to={CATEGORY_CONSTANTS[category]}
+              className='navbar__link'
+              activeClassName='navbar__link--active'
+            >
+              {CATEGORY_NAMES[category]}
+            </Link>
+          );
+        })
+      }
     </nav>
   )
 }

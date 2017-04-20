@@ -4,49 +4,43 @@ import Layout from 'components/layout/layout';
 import Button from 'components/button/button';
 import CategoryHeader from 'components/category-header/category-header';
 
+import { CATEGORY_CONSTANTS_ENUM, CATEGORY_CONSTANTS } from 'config/category.constants';
+
 import './home.scss';
 
 const home = () => {
   return (
     <Layout>
-      <div className='layout__page home'>
+      <div className='home'>
         <CategoryHeader
-          imageClassName='mens-outerwear'
-          title={'Men\'s Outerwear'}
-          to='/mens-outerwear'
+          category={CATEGORY_CONSTANTS_ENUM.MENS_OUTERWEAR}
         >
-          <Link to='/mens-outerwear'>
+          <Link to={CATEGORY_CONSTANTS.MENS_OUTERWEAR}>
             <Button title='Shop now' />
           </Link>
         </CategoryHeader>
 
         <CategoryHeader
-          imageClassName='ladies-outerwear'
-          title='Ladies Outerwear'
-          to='/ladies-outerwear'
+          category={CATEGORY_CONSTANTS_ENUM.LADIES_OUTERWEAR}
         >
-          <Link to='/ladies-outerwear'>
+          <Link to={CATEGORY_CONSTANTS.LADIES_OUTERWEAR}>
             <Button title='Shop now' />
           </Link>
         </CategoryHeader>
 
         <div className='home__category-container'>
           <CategoryHeader
-            imageClassName='mens-tshirts'
-            title={'Men\'s T-Shirts'}
-            to='/mens-tshirts'
+            category={CATEGORY_CONSTANTS_ENUM.MENS_TSHIRTS}
           >
-            <Link to='/mens-tshirts'>
+            <Link to={CATEGORY_CONSTANTS.MENS_TSHIRTS}>
               <Button title='Shop now' />
             </Link>
           </CategoryHeader>
 
           <CategoryHeader
-            imageClassName='ladies-tshirts'
-            title='Ladies T-Shirts'
-            to='/ladies-tshirts'
+            category={CATEGORY_CONSTANTS_ENUM.LADIES_TSHIRTS}
           >
-            <Link to='/ladies-tshirts'>
+            <Link to={CATEGORY_CONSTANTS.LADIES_TSHIRTS}>
               <Button title='Shop now' />
             </Link>
           </CategoryHeader>

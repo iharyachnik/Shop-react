@@ -1,11 +1,13 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, Redirect } from 'react-router';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import { CATEGORY_CONSTANTS } from 'config/category.constants';
+import reducers from 'reducers';
 
 import './app.scss';
-
-import reducers from 'reducers';
 
 import Home from 'views/home/home';
 import MensOutwear from 'views/mens-outerwear/mens-outerwear';
@@ -17,15 +19,16 @@ const store = createStore(
   combineReducers({
     reducers,
   }),
+  applyMiddleware(thunk)
 );
 
 const routes = (
   <Route>
     <Route exact path='/' component={Home} />
-    <Route path='/mens-outerwear' component={MensOutwear} />
-    <Route path='/mens-tshirts' component={MensTshirts} />
-    <Route path='/ladies-outerwear' component={LadiesOutwear} />
-    <Route path='/ladies-tshirts' component={LadiesTshirts} />
+    <Route path={CATEGORY_CONSTANTS.MENS_OUTERWEAR} component={MensOutwear} />
+    <Route path={CATEGORY_CONSTANTS.MENS_TSHIRTS} component={MensTshirts} />
+    <Route path={CATEGORY_CONSTANTS.LADIES_OUTERWEAR} component={LadiesOutwear} />
+    <Route path={CATEGORY_CONSTANTS.LADIES_TSHIRTS} component={LadiesTshirts} />
   </Route>
 );
 

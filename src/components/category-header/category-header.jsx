@@ -1,17 +1,21 @@
 import classnames from 'classnames';
 import { Link } from 'react-router';
 
+import { CATEGORY_CONSTANTS, CATEGORY_NAMES } from 'config/category.constants';
+
 import './category-header.scss';
 
 const categoryHeader = (props) => {
   const {
     containerClassName,
-    imageClassName,
     titleClassName,
-    title,
     children,
-    to,
+    category,
   } = props;
+
+  const to = CATEGORY_CONSTANTS[category];
+  const imageClassName = CATEGORY_CONSTANTS[category];
+  const title = CATEGORY_NAMES[category];
 
   const containerClass = classnames('category-header', containerClassName);
   const imageClass = classnames('category-header__image', imageClassName);

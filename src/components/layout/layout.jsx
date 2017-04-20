@@ -9,7 +9,9 @@ const layout = ({ children }) => {
     <div>
       <Header />
       <Navbar />
-      {children}
+      <div className='layout__page'>
+        {children}
+      </div>
       <Footer />
     </div>
   );

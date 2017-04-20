@@ -1,20 +1,15 @@
-import Layout from 'components/layout/layout';
-import CategoryHeader from 'components/category-header/category-header';
+import { CATEGORY_CONSTANTS_ENUM } from 'config/category.constants';
+
+import ProductList from 'components/product-list/product-list';
 
 import './mens-outerwear.scss';
 
-const mens_outerwear = () => {
+const MensOuterwear = () => {
   return (
-    <Layout>
-      <CategoryHeader
-        imageClassName='mens-outerwear'
-        titleClassName='category-header__title--no-margin-bottom'
-        title={'Men\'s Outerwear'}
-      >
-        <span className='category-header__subtitle'>(15 items)</span>
-      </CategoryHeader>
-    </Layout>
+    <ProductList
+      category={CATEGORY_CONSTANTS_ENUM.MENS_OUTERWEAR}
+    />
   );
 };
 
-export default mens_outerwear;
+export default MensOuterwear;

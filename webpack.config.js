@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 
@@ -23,6 +24,11 @@ module.exports = {
       views: path.resolve(__dirname, 'src/views'),
       reducers: path.resolve(__dirname, 'src/reducers'),
       images: path.resolve(__dirname, 'images'),
+      config: path.resolve(__dirname, 'src/config'),
+      models: path.resolve(__dirname, 'src/models'),
+      actions: path.resolve(__dirname, 'src/actions'),
+      data: path.resolve(__dirname, 'data'),
+      utils: path.resolve(__dirname, 'src/utils'),
     },
     extensions: ['.js', '.jsx'],
   },
@@ -67,6 +73,12 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'data'),
+        to: 'data',
+      },
+    ]),
   ],
 
   devServer: {
