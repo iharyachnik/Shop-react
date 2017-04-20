@@ -14,6 +14,7 @@ const navbar = () => {
               to={CATEGORY_CONSTANTS[category]}
               className='navbar__link'
               activeClassName='navbar__link--active'
+              key={category}
             >
               {CATEGORY_NAMES[category]}
             </Link>

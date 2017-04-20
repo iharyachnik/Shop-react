@@ -1,1 +1,1 @@
-export default (state = {}, action) => state;
+export { default as Products } from 'reducers/products';

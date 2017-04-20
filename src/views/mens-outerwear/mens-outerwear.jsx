@@ -1,8 +1,6 @@
-import { CATEGORY_CONSTANTS_ENUM } from 'config/category.constants';
-
 import ProductList from 'components/product-list/product-list';
 
-import './mens-outerwear.scss';
+import { CATEGORY_CONSTANTS_ENUM } from 'config/category.constants';
 
 const MensOuterwear = () => {
   return (

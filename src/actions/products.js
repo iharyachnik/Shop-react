@@ -7,6 +7,10 @@ export const getCategoryItems = category => dispatch => {
   return fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      dispatch({
+        type: GET_CATEGORY_ITEMS,
+        category,
+        data,
+      });
     })
 };

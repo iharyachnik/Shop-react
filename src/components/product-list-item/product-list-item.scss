@@ -1,0 +1,18 @@
+.product-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+
+  &__image {
+    margin: 32px 0 16px;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__price {
+    color: grey;
+  }
+}

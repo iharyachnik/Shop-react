@@ -1,18 +1,13 @@
-import Layout from 'components/layout/layout';
-import CategoryHeader from 'components/category-header/category-header';
+import ProductList from 'components/product-list/product-list';
 
 import { CATEGORY_CONSTANTS_ENUM } from 'config/category.constants';
 
-const ladies_tshirts = () => {
+const LadiesTshirts = () => {
   return (
-    <Layout>
-      <CategoryHeader
-        category={CATEGORY_CONSTANTS_ENUM.LADIES_TSHIRTS}
-      >
-        <span className='category-header__subtitle'>(12 items)</span>
-      </CategoryHeader>
-    </Layout>
+    <ProductList
+      category={CATEGORY_CONSTANTS_ENUM.LADIES_TSHIRTS}
+    />
   );
 };
 
-export default ladies_tshirts;
+export default LadiesTshirts;

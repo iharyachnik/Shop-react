@@ -8,6 +8,8 @@ import ProductListItem from 'components/product-list-item/product-list-item';
 import { getCategoryItems } from 'actions/products';
 import { CATEGORY_CONSTANTS, CATEGORY_NAMES } from 'config/category.constants';
 
+import './product-list.scss';
+
 class ProductList extends React.Component {
   componentDidMount() {
     const { category } = this.props;
@@ -24,12 +26,12 @@ class ProductList extends React.Component {
           category={category}
           titleClassName='category-header__title--no-margin-bottom'
         >
-          <span className='category-header__subtitle'>(16 items)</span>
+          <span className='category-header__subtitle'>
+            ({items.size} items)
+          </span>
         </CategoryHeader>
-        <div>
-          {/*{
-            items.map(e => <ProductListItem item={e} />)
-          }*/}
+        <div className='product-list'>
+          {items.map(e => <ProductListItem item={e} />)}
         </div>
       </Layout>
     );
@@ -37,7 +39,11 @@ class ProductList extends React.Component {
 }
 
 export default connect(
-  null,
+  ({ Products }, ownProps) => {
+    return {
+      items: Products.getCategoryItems(ownProps.category),
+    };
+  },
   dispatch => bindActionCreators({
     getCategoryItems,
   }, dispatch)

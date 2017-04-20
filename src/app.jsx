@@ -5,7 +5,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import { CATEGORY_CONSTANTS } from 'config/category.constants';
-import reducers from 'reducers';
+import * as reducers from 'reducers';
 
 import './app.scss';
 
@@ -15,11 +15,16 @@ import MensTshirts from 'views/mens-tshirts/mens-tshirts';
 import LadiesOutwear from 'views/ladies-outerwear/ladies-outerwear';
 import LadiesTshirts from 'views/ladies-tshirts/ladies-tshirts';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   combineReducers({
-    reducers,
+    ...reducers,
   }),
-  applyMiddleware(thunk)
+  {},
+  composeEnhancers(
+    applyMiddleware(thunk),
+  ),
 );
 
 const routes = (
