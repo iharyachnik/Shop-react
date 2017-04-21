@@ -11,13 +11,32 @@ import './product-list.scss';
 
 class ProductList extends React.Component {
   componentDidMount() {
-    const { category } = this.props;
+    const { params: { category: category } } = this.props;
 
     this.props.getCategoryItems(category);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { params: { category: currentCategory } } = this.props;
+    const { params: { category: newCategory } } = nextProps;
+
+    if (currentCategory === newCategory) {
+      return;
+    }
+
+    this.props.getCategoryItems(newCategory);
+  }
+
   render() {
-    const { category, items } = this.props;
+    const { params: { category: category }, items } = this.props;
+
+    if (!items) {
+      return (
+        <Layout>
+          <span>Category {category} not found!</span>
+        </Layout>
+      );
+    }
 
     return (
       <Layout>
@@ -41,7 +60,7 @@ class ProductList extends React.Component {
 export default connect(
   ({ Products }, ownProps) => {
     return {
-      items: Products.getCategoryItems(ownProps.category),
+      items: Products.getCategoryItems(ownProps.params.category),
     };
   },
   dispatch => bindActionCreators({

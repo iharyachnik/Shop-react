@@ -1,14 +1,14 @@
 import { Record, List, fromJS } from 'immutable';
 
-import { CATEGORY_CONSTANTS_ENUM } from 'config/category.constants';
+import { CATEGORY_CONSTANTS } from 'config/category.constants';
 
 import Product from 'models/product';
 
 const Parent = Record({
-  [CATEGORY_CONSTANTS_ENUM.MENS_OUTERWEAR]: List(),
-  [CATEGORY_CONSTANTS_ENUM.MENS_TSHIRTS]: List(),
-  [CATEGORY_CONSTANTS_ENUM.LADIES_OUTERWEAR]: List(),
-  [CATEGORY_CONSTANTS_ENUM.LADIES_TSHIRTS]: List(),
+  [CATEGORY_CONSTANTS.mens_outerwear]: List(),
+  [CATEGORY_CONSTANTS.ladies_outerwear]: List(),
+  [CATEGORY_CONSTANTS.mens_tshirts]: List(),
+  [CATEGORY_CONSTANTS.ladies_tshirts]: List(),
 });
 
 class Products extends Parent {

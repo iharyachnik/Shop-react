@@ -12,5 +12,5 @@ export const getCategoryItems = category => dispatch => {
         category,
         data,
       });
-    })
+    });
 };

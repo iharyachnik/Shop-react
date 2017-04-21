@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-import { CATEGORY_CONSTANTS_ENUM, CATEGORY_CONSTANTS, CATEGORY_NAMES } from 'config/category.constants';
+import { CATEGORY_CONSTANTS, CATEGORY_NAMES } from 'config/category.constants';
 
 import './navbar.scss';
 
@@ -8,10 +8,10 @@ const navbar = () => {
   return (
     <nav className='navbar'>
       {
-        Object.keys(CATEGORY_CONSTANTS_ENUM).map(category => {
+        Object.keys(CATEGORY_CONSTANTS).map(category => {
           return (
             <Link
-              to={CATEGORY_CONSTANTS[category]}
+              to={category}
               className='navbar__link'
               activeClassName='navbar__link--active'
               key={category}

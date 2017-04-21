@@ -1,20 +1,13 @@
-export const CATEGORY_CONSTANTS_ENUM = {
-  MENS_OUTERWEAR: 'MENS_OUTERWEAR',
-  LADIES_OUTERWEAR: 'LADIES_OUTERWEAR',
-  MENS_TSHIRTS: 'MENS_TSHIRTS',
-  LADIES_TSHIRTS: 'LADIES_TSHIRTS',
-}
-
 export const CATEGORY_CONSTANTS = {
-  [CATEGORY_CONSTANTS_ENUM.MENS_OUTERWEAR]: 'mens_outerwear',
-  [CATEGORY_CONSTANTS_ENUM.LADIES_OUTERWEAR]: 'ladies_outerwear',
-  [CATEGORY_CONSTANTS_ENUM.MENS_TSHIRTS]: 'mens_tshirts',
-  [CATEGORY_CONSTANTS_ENUM.LADIES_TSHIRTS]: 'ladies_tshirts',
+  mens_outerwear: 'mens_outerwear',
+  ladies_outerwear: 'ladies_outerwear',
+  mens_tshirts: 'mens_tshirts',
+  ladies_tshirts: 'ladies_tshirts',
 };
 
 export const CATEGORY_NAMES = {
-  [CATEGORY_CONSTANTS_ENUM.MENS_OUTERWEAR]: "Men\'s Outerwear",
-  [CATEGORY_CONSTANTS_ENUM.LADIES_OUTERWEAR]: 'Ladies Outerwear',
-  [CATEGORY_CONSTANTS_ENUM.MENS_TSHIRTS]: "Men\'s T-Shirts",
-  [CATEGORY_CONSTANTS_ENUM.LADIES_TSHIRTS]: 'Ladies T-Shirts',
+  [CATEGORY_CONSTANTS.mens_outerwear]: "Men\'s Outerwear",
+  [CATEGORY_CONSTANTS.ladies_outerwear]: 'Ladies Outerwear',
+  [CATEGORY_CONSTANTS.mens_tshirts]: "Men\'s T-Shirts",
+  [CATEGORY_CONSTANTS.ladies_tshirts]: 'Ladies T-Shirts',
 };
