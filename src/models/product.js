@@ -23,7 +23,7 @@ class Product extends Parent {
     return this.get('image');
   }
 
-  getKey() {
+  getId() {
     return this.get('name');
   }
 }

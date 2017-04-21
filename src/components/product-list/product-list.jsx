@@ -6,7 +6,6 @@ import CategoryHeader from 'components/category-header/category-header';
 import ProductListItem from 'components/product-list-item/product-list-item';
 
 import { getCategoryItems } from 'actions/products';
-import { CATEGORY_CONSTANTS, CATEGORY_NAMES } from 'config/category.constants';
 
 import './product-list.scss';
 
@@ -32,7 +31,7 @@ class ProductList extends React.Component {
           </span>
         </CategoryHeader>
         <div className='product-list'>
-          {items.map(e => <ProductListItem item={e} key={e.getKey()} />)}
+          {items.map(e => <ProductListItem item={e} key={e.getId()} />)}
         </div>
       </Layout>
     );
