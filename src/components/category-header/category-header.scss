@@ -5,6 +5,10 @@
   margin-bottom: 40px;
   width: 100%;
 
+  &--no-margin-bottom {
+    margin-bottom: 0;
+  }
+
   &__image {
     background-position: center;
     height: 320px;

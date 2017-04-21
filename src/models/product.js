@@ -22,6 +22,10 @@ class Product extends Parent {
   getImageUrl() {
     return this.get('image');
   }
+
+  getKey() {
+    return this.get('name');
+  }
 }
 
 export default Product;

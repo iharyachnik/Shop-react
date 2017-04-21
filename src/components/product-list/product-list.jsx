@@ -25,13 +25,14 @@ class ProductList extends React.Component {
         <CategoryHeader
           category={category}
           titleClassName='category-header__title--no-margin-bottom'
+          containerClassName='category-header--no-margin-bottom'
         >
           <span className='category-header__subtitle'>
             ({items.size} items)
           </span>
         </CategoryHeader>
         <div className='product-list'>
-          {items.map(e => <ProductListItem item={e} />)}
+          {items.map(e => <ProductListItem item={e} key={e.getKey()} />)}
         </div>
       </Layout>
     );
