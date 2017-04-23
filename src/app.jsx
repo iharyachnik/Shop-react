@@ -12,6 +12,7 @@ import './app.scss';
 import Home from 'views/home/home';
 import Details from 'views/details/details';
 import ProductList from 'components/product-list/product-list';
+import NotFound from 'components/not-found/not-found'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -30,6 +31,7 @@ const routes = (
     <Route exact path='/' component={Home} />
     <Route path='/:category' component={ProductList} />
     <Route path='/:category/:id' component={Details} />
+    <Route path="*" component={NotFound} />
   </Route>
 );
 

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import Layout from 'components/layout/layout';
 import CategoryHeader from 'components/category-header/category-header';
 import ProductListItem from 'components/product-list-item/product-list-item';
+import NotFound from 'components/not-found/not-found';
 
 import { getCategoryItems } from 'actions/products';
 
@@ -32,9 +33,7 @@ class ProductList extends React.Component {
 
     if (!items) {
       return (
-        <Layout>
-          <span>Category {category} not found!</span>
-        </Layout>
+        <NotFound />
       );
     }
 
