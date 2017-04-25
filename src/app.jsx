@@ -29,8 +29,9 @@ const store = createStore(
 const routes = (
   <Route>
     <Route exact path='/' component={Home} />
-    <Route path='/:category' component={ProductList} />
-    <Route path='/:category/:id' component={Details} />
+    <Route path='/:category' component={ProductList} >
+      <Route path=':id' component={Details} />
+    </Route>
     <Route path="*" component={NotFound} />
   </Route>
 );
@@ -38,7 +39,11 @@ const routes = (
 const app = () => {
   return (
     <Provider store={store}>
-      <Router history={browserHistory} routes={routes} key={Math.random()}>
+      <Router
+        onUpdate={() => window.scrollTo(0, 0)}
+        history={browserHistory}
+        routes={routes}
+        key={Math.random()}>
       </Router>
     </Provider>
   );

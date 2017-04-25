@@ -5,6 +5,7 @@ import Layout from 'components/layout/layout';
 import CategoryHeader from 'components/category-header/category-header';
 import ProductListItem from 'components/product-list-item/product-list-item';
 import NotFound from 'components/not-found/not-found';
+import Details from 'views/details/details';
 
 import { getCategoryItems } from 'actions/products';
 
@@ -29,11 +30,24 @@ class ProductList extends React.Component {
   }
 
   render() {
-    const { params: { category: category }, items } = this.props;
+    const {
+      params,
+      params: {
+        category: category,
+        id: id,
+      },
+      items
+    } = this.props;
 
     if (!items) {
       return (
         <NotFound />
+      );
+    }
+
+    if (id) {
+      return (
+        <Details params={params} />
       );
     }
 
