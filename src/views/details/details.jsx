@@ -72,7 +72,9 @@ class Details extends React.Component {
               <h2>Description</h2>
               <p dangerouslySetInnerHTML={{ __html: unescapedDescription }} />
             </div>
-            <Button title='Add to cart' />
+            <div>
+              <Button title='Add to cart' />
+            </div>
           </div>
         </div>
       </Layout>
