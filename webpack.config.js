@@ -55,6 +55,13 @@ module.exports = {
       {
         test: /\.(png|jpg)$/,
         use: 'url-loader?limit=10000?url=false',
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader?' + JSON.stringify({
+          name: '[name]_[hash]',
+          prefixize: true,
+        })
       }
     ]
   },

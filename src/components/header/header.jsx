@@ -1,5 +1,9 @@
 import { Link } from 'react-router';
 
+import Icon from 'components/icon/icon';
+
+import ShoppingCart from 'images/shopping-cart.svg';
+
 import './header.scss';
 
 const header = () => {
@@ -10,7 +14,9 @@ const header = () => {
           SHOP
         </Link>
       </div>
-      <div className='header__basket'>Basket</div>
+      <Icon
+        id={ShoppingCart}
+      />
     </header>
   );
 };
