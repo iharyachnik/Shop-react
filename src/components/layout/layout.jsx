@@ -4,10 +4,13 @@ import Footer from 'components/footer/footer';
 
 import './layout.scss'
 
-const layout = ({ children, withoutNavbar, withoutFooter }) => {
+const layout = ({ children, withArrow, toCategory, withoutNavbar, withoutFooter }) => {
   return (
     <div>
-      <Header />
+      <Header
+        arrowVisible={withArrow}
+        category={toCategory}
+      />
       <Navbar visible={!withoutNavbar} />
       <div className='layout__page'>
         {children}

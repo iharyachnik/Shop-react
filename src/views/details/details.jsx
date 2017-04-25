@@ -33,12 +33,16 @@ class Details extends React.Component {
     }
 
     const { size: selectedSize, quantity: selectedQuantity } = this.state;
+    const { params: { category: category } } = this.props;
 
     const price = formatPrice(item.getPrice());
     const unescapedDescription = this.unescapeText(item.getDescription());
 
     return (
-      <Layout>
+      <Layout
+        withArrow={true}
+        toCategory={category}
+      >
         <div className='details'>
           <div className='details-image'>
             <img src={item.getLargeImageUrl()} />
