@@ -23,8 +23,20 @@ class Product extends Parent {
     return this.get('image');
   }
 
+  getLargeImageUrl() {
+    return this.get('largeImage');
+  }
+
   getId() {
     return this.get('name');
+  }
+
+  getCategory() {
+    return this.get('category');
+  }
+
+  getDescription() {
+    return this.get('description');
   }
 }
 

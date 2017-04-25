@@ -1,0 +1,27 @@
+.select {
+  font-size: 1rem;
+  font-weight: normal;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 16px 24px 16px 70px;
+  width: 100%;
+
+  &__arrow-down {
+    font-size: 0.8rem;
+
+    &:after {
+      content: '\25BC';
+      display: block;
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: scaleY(.6) translate(0, -90%);
+      color: gray;
+      pointer-events: none;
+    }
+  }
+}

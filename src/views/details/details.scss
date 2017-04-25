@@ -2,9 +2,70 @@
   display: flex;
   justify-content: center;
 
-  &__image {
+  &-image {
     margin: 64px 32px;
     width: 50%;
     max-width: 600px;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &-description {
+    display: flex;
+    flex-direction: column;
+    margin: 64px 32px;
+    width: 50%;
+    max-width: 400px;
+
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 28px;
+      margin: 0;
+    }
+
+    &__price {
+      margin: 16px 0 40px;
+      font-size: 1rem;
+      color: gray;
+    }
+
+    &__select {
+      position: relative;
+
+      &-container {
+        border-top: 1px solid #ccc;
+      }
+
+      &--details {
+        border-bottom: 1px solid #ccc;
+      }
+
+      label {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        color: gray;
+        pointer-events: none;
+      }
+    }
+
+    &__spec {
+      margin: 32px 0;
+
+      h2 {
+        font-size: 0.85rem;
+        margin: 15px 0;
+      }
+
+      p {
+        color: gray;
+        margin: 0;
+      }
+    }
   }
 }

@@ -49,7 +49,16 @@ class ProductList extends React.Component {
           </span>
         </CategoryHeader>
         <div className='product-list'>
-          {items.map(e => <ProductListItem item={e} key={e.getId()} />)}
+          {
+            items.valueSeq().map(item => {
+              return (
+                <ProductListItem
+                  item={item}
+                  key={item.getId()}
+                />
+              );
+            })
+          }
         </div>
       </Layout>
     );
