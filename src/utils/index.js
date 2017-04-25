@@ -7,5 +7,5 @@ export const getDetailsUrl = (category, itemId) => {
 };
 
 export const formatPrice = (price) => {
-  return `$${price.toFixed(2)}`;
+  return price ? '$' + price.toFixed(2) : '';
 };

@@ -35,6 +35,7 @@ class Details extends React.Component {
     const { size: selectedSize, quantity: selectedQuantity } = this.state;
 
     const price = formatPrice(item.getPrice());
+    const unescapedDescription = this.unescapeText(item.getDescription());
 
     return (
       <Layout>
@@ -69,7 +70,7 @@ class Details extends React.Component {
             </div>
             <div className='details-description__spec'>
               <h2>Description</h2>
-              <p>{item.getDescription()}</p>
+              <p dangerouslySetInnerHTML={{ __html: unescapedDescription }} />
             </div>
             <Button title='Add to cart' />
           </div>
@@ -82,6 +83,13 @@ class Details extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+  }
+
+  unescapeText(text) {
+    const elem = document.createElement('textarea');
+    elem.innerHTML = text;
+
+    return elem.textContent;
   }
 }
 
