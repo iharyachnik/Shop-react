@@ -11,6 +11,7 @@ import './app.scss';
 
 import Home from 'views/home/home';
 import Details from 'views/details/details';
+import ShoppingCart from 'views/shopping-cart/shopping-cart';
 import ProductList from 'components/product-list/product-list';
 import NotFound from 'components/not-found/not-found'
 
@@ -29,6 +30,7 @@ const store = createStore(
 const routes = (
   <Route>
     <Route exact path='/' component={Home} />
+    <Route path='/cart' component={ShoppingCart} />
     <Route path='/:category' component={ProductList} >
       <Route path=':id' component={Details} />
     </Route>

@@ -4,15 +4,15 @@ import Footer from 'components/footer/footer';
 
 import './layout.scss'
 
-const layout = ({ children }) => {
+const layout = ({ children, withoutNavbar, withoutFooter }) => {
   return (
     <div>
       <Header />
-      <Navbar />
+      <Navbar visible={!withoutNavbar} />
       <div className='layout__page'>
         {children}
       </div>
-      <Footer />
+      <Footer visible={!withoutFooter} />
     </div>
   );
 }

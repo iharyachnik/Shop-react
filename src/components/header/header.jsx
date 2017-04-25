@@ -14,9 +14,11 @@ const header = () => {
           SHOP
         </Link>
       </div>
-      <Icon
-        id={ShoppingCart}
-      />
+      <Link to='/cart'>
+        <Icon
+          id={ShoppingCart}
+        />
+      </Link>
     </header>
   );
 };

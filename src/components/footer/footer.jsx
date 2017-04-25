@@ -1,6 +1,10 @@
 import './footer.scss';
 
-const footer = () => {
+const footer = ({ visible }) => {
+  if (!visible) {
+    return null;
+  }
+
   return (
     <footer className='footer'>
       Demo App

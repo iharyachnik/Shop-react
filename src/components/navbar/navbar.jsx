@@ -4,11 +4,11 @@ import { CATEGORY_CONSTANTS, CATEGORY_NAMES } from 'config/category.constants';
 
 import './navbar.scss';
 
-const navbar = () => {
+const navbar = ({ visible }) => {
   return (
     <nav className='navbar'>
       {
-        Object.keys(CATEGORY_CONSTANTS).map(category => {
+        visible && Object.keys(CATEGORY_CONSTANTS).map(category => {
           return (
             <Link
               to={category}
