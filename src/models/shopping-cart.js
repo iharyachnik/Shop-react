@@ -48,6 +48,16 @@ class ShoppingCart extends Parent {
       return p + c.getProduct().getPrice() * c.getQuantity();
     }, 0);
   }
+
+  changeQuantity(product, quantity) {
+    const list = this.getItems();
+    const updatedList = list.update(
+      list.findIndex(item => item.getProduct() === product),
+      (item) => item.setQuantity(quantity),
+    );
+
+    return this.setItems(updatedList);
+  }
 }
 
 export default ShoppingCart;

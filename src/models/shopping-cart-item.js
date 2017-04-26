@@ -15,6 +15,10 @@ class ShoppingCartItem extends Parent {
     return this.get('quantity');
   }
 
+  setQuantity(quantity) {
+    return this.set('quantity', quantity);
+  }
+
   getSize() {
     return this.get('selectedSize');
   }

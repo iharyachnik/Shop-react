@@ -21,5 +21,6 @@ export const changeQuantity = (product, quantity) => dispatch => {
   return dispatch({
     type: CHANGE_QUANTITY,
     product,
+    quantity,
   });
 };

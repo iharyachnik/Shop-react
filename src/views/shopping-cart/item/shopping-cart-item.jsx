@@ -11,6 +11,12 @@ import Cross from 'images/cross.svg';
 import './shopping-cart-item.scss';
 
 class ShoppingCartItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleQuantityChange = this.handleQuantityChange.bind(this);
+  }
+
   render() {
     const { item, deleteProduct } = this.props;
 
@@ -35,7 +41,7 @@ class ShoppingCartItem extends React.Component {
           <Select
             options={QUANTITY_CONSTANTS}
             selectedValue={item.getQuantity()}
-            onChange={() => null}
+            onChange={this.handleQuantityChange}
             name='quantity'
             label='Qty:'
             className='shopping-cart-item__select'
@@ -58,6 +64,12 @@ class ShoppingCartItem extends React.Component {
         </div>
       </div>
     );
+  }
+
+  handleQuantityChange(e) {
+    const { item, changeQuantity } = this.props;
+
+    changeQuantity(item.getProduct(), parseInt(e.target.value));
   }
 }
 

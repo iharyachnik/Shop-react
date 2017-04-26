@@ -6,7 +6,7 @@ import EmptyShoppingCart from 'views/shopping-cart/empty/empty-shopping-cart';
 import ShoppingCartItem from 'views/shopping-cart/item/shopping-cart-item';
 import Button from 'components/button/button';
 
-import { deleteProduct } from 'actions/shopping-cart';
+import { deleteProduct, changeQuantity } from 'actions/shopping-cart';
 
 import { formatPrice, formatAmountString } from 'utils';
 
@@ -14,7 +14,7 @@ import './shopping-cart.scss';
 
 class ShoppingCart extends React.Component {
   render() {
-    const { items, totalPrice, deleteProduct } = this.props;
+    const { items, totalPrice, deleteProduct, changeQuantity } = this.props;
 
     if (!items.size) {
       return (
@@ -43,6 +43,7 @@ class ShoppingCart extends React.Component {
                     key={item.getId()}
                     item={item}
                     deleteProduct={deleteProduct}
+                    changeQuantity={changeQuantity}
                   />
                 );
               })
@@ -68,5 +69,6 @@ export default connect(
   }),
   dispatch => bindActionCreators({
     deleteProduct,
+    changeQuantity,
   }, dispatch)
 )(ShoppingCart);
