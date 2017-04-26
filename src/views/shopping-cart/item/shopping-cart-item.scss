@@ -23,6 +23,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
   }
 
   &__size, &__price {
@@ -59,6 +64,7 @@
   }
 
   &__cross {
+    cursor: pointer;
     fill: gray;
     height: 18px;
     width: 18px;

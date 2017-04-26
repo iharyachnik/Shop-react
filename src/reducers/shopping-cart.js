@@ -7,8 +7,11 @@ const createReducer = (state = initialState, action) => {
   let newState = state;
 
   switch (action.type) {
-    case SHOPPING_CART_ACTIONS.ADD_TO_CART:
+    case SHOPPING_CART_ACTIONS.ADD_PRODUCT:
       newState = newState.addItem(action.product, action.selectedSize, action.quantity);
+      break;
+    case SHOPPING_CART_ACTIONS.DELETE_PRODUCT:
+      newState = newState.deleteItem(action.product);
       break;
     default:
       break;

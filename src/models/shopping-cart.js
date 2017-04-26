@@ -38,7 +38,7 @@ class ShoppingCart extends Parent {
   }
 
   deleteItem(item) {
-    const updatedList = this.getItems().filter(e => e !== item);
+    const updatedList = this.getItems().filter(e => e.getProduct() !== item);
 
     return this.setItems(updatedList);
   }

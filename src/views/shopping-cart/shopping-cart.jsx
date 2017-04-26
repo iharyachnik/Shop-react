@@ -6,13 +6,15 @@ import EmptyShoppingCart from 'views/shopping-cart/empty/empty-shopping-cart';
 import ShoppingCartItem from 'views/shopping-cart/item/shopping-cart-item';
 import Button from 'components/button/button';
 
+import { deleteProduct } from 'actions/shopping-cart';
+
 import { formatPrice, formatAmountString } from 'utils';
 
 import './shopping-cart.scss';
 
 class ShoppingCart extends React.Component {
   render() {
-    const { items, totalPrice } = this.props;
+    const { items, totalPrice, deleteProduct } = this.props;
 
     if (!items.size) {
       return (
@@ -40,6 +42,7 @@ class ShoppingCart extends React.Component {
                   <ShoppingCartItem
                     key={item.getId()}
                     item={item}
+                    deleteProduct={deleteProduct}
                   />
                 );
               })
@@ -62,5 +65,8 @@ export default connect(
   ({ ShoppingCart }) => ({
     items: ShoppingCart.getItems(),
     totalPrice: ShoppingCart.getTotalPrice(),
-  })
+  }),
+  dispatch => bindActionCreators({
+    deleteProduct,
+  }, dispatch)
 )(ShoppingCart);
