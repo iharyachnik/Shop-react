@@ -79,7 +79,7 @@ class Details extends React.Component {
               <p dangerouslySetInnerHTML={{ __html: unescapedDescription }} />
             </div>
             <div
-              onClick={() => addProduct(item, selectedSize, selectedQuantity)}
+              onClick={() => addProduct(item, selectedSize, parseInt(selectedQuantity))}
             >
               <Button title='Add to cart' />
             </div>

@@ -16,6 +16,18 @@ class ShoppingCart extends Parent {
   }
 
   addItem(product, selectedSize, quantity) {
+    const sameProductIndex = this.getItems().findIndex(item => {
+      return item.getProduct().getId() === product.getId()
+        && item.getSize() === selectedSize;
+    });
+
+    if (sameProductIndex > -1) {
+      const currentQuantity = this.getItems().get(sameProductIndex).getQuantity();
+      const newQuantity = Math.min(12, currentQuantity + quantity);
+
+      return this.changeQuantity(product, newQuantity, selectedSize);
+    }
+
     const shoppingCartItem = new ShoppingCartItem({
       product,
       quantity,
@@ -49,10 +61,12 @@ class ShoppingCart extends Parent {
     }, 0);
   }
 
-  changeQuantity(product, quantity) {
+  changeQuantity(product, quantity, size) {
     const list = this.getItems();
     const updatedList = list.update(
-      list.findIndex(item => item.getProduct() === product),
+      list.findIndex(item => {
+        return item.getProduct() === product && item.getSize() === size
+      }),
       (item) => item.setQuantity(quantity),
     );
 

@@ -14,7 +14,7 @@ const createReducer = (state = initialState, action) => {
       newState = newState.deleteItem(action.product);
       break;
     case SHOPPING_CART_ACTIONS.CHANGE_QUANTITY:
-      newState = newState.changeQuantity(action.product, action.quantity);
+      newState = newState.changeQuantity(action.product, action.quantity, action.selectedSize);
       break;
     default:
       break;

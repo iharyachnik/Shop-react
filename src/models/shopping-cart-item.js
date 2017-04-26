@@ -24,7 +24,7 @@ class ShoppingCartItem extends Parent {
   }
 
   getId() {
-    return this.getProduct().getId();
+    return this.getProduct().getId() + this.getSize();
   }
 }
 

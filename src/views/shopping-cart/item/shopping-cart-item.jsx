@@ -69,7 +69,7 @@ class ShoppingCartItem extends React.Component {
   handleQuantityChange(e) {
     const { item, changeQuantity } = this.props;
 
-    changeQuantity(item.getProduct(), parseInt(e.target.value));
+    changeQuantity(item.getProduct(), parseInt(e.target.value), item.getSize());
   }
 }
 

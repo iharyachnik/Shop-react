@@ -17,10 +17,11 @@ export const deleteProduct = product => dispatch => {
 };
 
 export const CHANGE_QUANTITY = 'CHANGE_QUANTITY';
-export const changeQuantity = (product, quantity) => dispatch => {
+export const changeQuantity = (product, quantity, selectedSize) => dispatch => {
   return dispatch({
     type: CHANGE_QUANTITY,
     product,
     quantity,
+    selectedSize
   });
 };
