@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, Redirect } from 'react-router';
@@ -15,16 +17,12 @@ import ShoppingCart from 'views/shopping-cart/shopping-cart';
 import ProductList from 'components/product-list/product-list';
 import NotFound from 'components/not-found/not-found'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const store = createStore(
   combineReducers({
     ...reducers,
   }),
-  {},
-  composeEnhancers(
-    applyMiddleware(thunk),
-  ),
+  window.devToolsExtension ? window.devToolsExtension() : f => f,
+  applyMiddleware(thunk)
 );
 
 const routes = (
