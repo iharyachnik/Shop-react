@@ -1,8 +1,8 @@
 import { Link } from 'react-router';
 
 import Icon from 'components/icon/icon';
+import ShoppingCartIcon from 'components/header/shopping-cart/header-shopping-cart';
 
-import ShoppingCart from 'images/shopping-cart.svg';
 import ArrowLeft from 'images/arrow-left.svg';
 
 import './header.scss';
@@ -24,9 +24,7 @@ const header = ({ arrowVisible, category }) => {
           SHOP
         </Link>
       </div>
-      <Link to='/cart'>
-        <Icon id={ShoppingCart} />
-      </Link>
+      <ShoppingCartIcon />
     </header>
   );
 };

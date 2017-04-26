@@ -1,0 +1,22 @@
+.header-shopping-cart {
+  position: relative;
+
+  &__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #172C50;
+    border-radius: 50%;
+    color: white;
+    min-width: 20px;
+    min-height: 20px;
+    top: -3px;
+    right: 0;
+    pointer-events: none;
+  }
+
+  &__icon {
+    padding: 8px;
+  }
+}

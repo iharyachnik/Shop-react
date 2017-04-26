@@ -61,6 +61,12 @@ class ShoppingCart extends Parent {
     }, 0);
   }
 
+  getTotalQuantity() {
+    return this.getItems().reduce((p, c) => {
+      return p + c.getQuantity();
+    }, 0);
+  }
+
   changeQuantity(product, quantity, size) {
     const list = this.getItems();
     const updatedList = list.update(
