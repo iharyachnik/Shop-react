@@ -89,7 +89,7 @@ module.exports = {
     ]),
     new FaviconsWebpackPlugin({
       logo: 'images/shop-icon.png',
-      prefix: 'build/',
+      prefix: 'icons/',
     })
   ],
 
