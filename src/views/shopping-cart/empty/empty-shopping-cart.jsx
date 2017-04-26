@@ -10,7 +10,7 @@ const EmptyShoppingCart = () => {
       withoutFooter={true}
     >
       <div className='shopping-cart shopping-cart--empty'>
-        <div className='shopping-cart__header'>
+        <div className='shopping-cart__header shopping-cart__header--empty'>
           Your
           <Icon
             id={ShoppingCartIcon}

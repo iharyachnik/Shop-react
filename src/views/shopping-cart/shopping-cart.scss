@@ -25,6 +25,12 @@
       color: gray;
       font-size: 0.8rem;
     }
+
+    &--empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__list {
