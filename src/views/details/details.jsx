@@ -5,6 +5,7 @@ import Layout from 'components/layout/layout';
 import NotFound from 'components/not-found/not-found';
 import Select from 'components/select/select';
 import Button from 'components/button/button';
+import Notification from 'components/notification/notification';
 
 import { addProduct } from 'actions/shopping-cart';
 
@@ -20,9 +21,11 @@ class Details extends React.Component {
     this.state = {
       size: SIZE_CONSTANTS[2],
       quantity: QUANTITY_CONSTANTS[0],
+      notificationOpened: false,
     };
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.closeNotification = this.closeNotification.bind(this);
   }
 
   render() {
@@ -34,11 +37,21 @@ class Details extends React.Component {
       );
     }
 
-    const { size: selectedSize, quantity: selectedQuantity } = this.state;
+    const {
+      size: selectedSize,
+      quantity: selectedQuantity,
+      notificationOpened,
+    } = this.state;
     const { params: { category: category }, addProduct } = this.props;
 
     const price = formatPrice(item.getPrice());
     const unescapedDescription = this.unescapeText(item.getDescription());
+
+    const notification = notificationOpened ? (
+      <Notification
+        onClose={this.closeNotification}
+      />
+    ) : null;
 
     return (
       <Layout
@@ -79,12 +92,13 @@ class Details extends React.Component {
               <p dangerouslySetInnerHTML={{ __html: unescapedDescription }} />
             </div>
             <div
-              onClick={() => addProduct(item, selectedSize, parseInt(selectedQuantity))}
+              onClick={() => this.handleAddingProduct()}
             >
               <Button title='Add to cart' />
             </div>
           </div>
         </div>
+        {notification}
       </Layout>
     );
   }
@@ -92,6 +106,23 @@ class Details extends React.Component {
   handleSelectChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  }
+
+  handleAddingProduct() {
+    const { addProduct, item } = this.props;
+    const { size: selectedSize, quantity: selectedQuantity, } = this.state;
+
+    this.setState({
+      notificationOpened: true,
+    });
+
+    addProduct(item, selectedSize, parseInt(selectedQuantity));
+  }
+
+  closeNotification() {
+    this.setState({
+      notificationOpened: false,
     });
   }
 

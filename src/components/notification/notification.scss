@@ -1,0 +1,44 @@
+.notification {
+  height: 100px;
+  width: 300px;
+  position: fixed;
+  right: 15px;
+  top: 60px;
+  background-color: white;
+  padding: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: appearance 0.3s;
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 24px;
+  }
+
+  &__layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px;
+
+    &:last-child {
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    font-size: 0.85rem;
+  }
+
+  &__cross {
+    cursor: pointer;
+  }
+
+  @keyframes appearance {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
