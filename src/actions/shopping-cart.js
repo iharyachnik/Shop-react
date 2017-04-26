@@ -9,10 +9,11 @@ export const addProduct = (product, selectedSize, quantity) => dispatch => {
 };
 
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
-export const deleteProduct = product => dispatch => {
+export const deleteProduct = (product, selectedSize) => dispatch => {
   return dispatch({
     type: DELETE_PRODUCT,
     product,
+    selectedSize,
   });
 };
 

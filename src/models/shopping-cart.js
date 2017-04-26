@@ -49,8 +49,11 @@ class ShoppingCart extends Parent {
     return this.setItems(updatedList);
   }
 
-  deleteItem(item) {
-    const updatedList = this.getItems().filter(e => e.getProduct() !== item);
+  deleteItem(product, size) {
+    const updatedList = this.getItems().filter(item => {
+      return !(item.getProduct().getId() === product.getId()
+        && item.getSize() === size);
+    });
 
     return this.setItems(updatedList);
   }

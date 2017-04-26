@@ -59,7 +59,7 @@ class ShoppingCartItem extends React.Component {
           <Icon
             id={Cross}
             className='shopping-cart-item__cross'
-            onClick={() => deleteProduct(product)}
+            onClick={() => deleteProduct(product, item.getSize())}
           />
         </div>
       </div>
