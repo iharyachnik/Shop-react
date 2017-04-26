@@ -24,11 +24,11 @@ module.exports = {
       components: path.resolve(__dirname, 'src/components'),
       views: path.resolve(__dirname, 'src/views'),
       reducers: path.resolve(__dirname, 'src/reducers'),
-      images: path.resolve(__dirname, 'images'),
+      images: path.resolve(__dirname, 'assets/images'),
       config: path.resolve(__dirname, 'src/config'),
       models: path.resolve(__dirname, 'src/models'),
       actions: path.resolve(__dirname, 'src/actions'),
-      data: path.resolve(__dirname, 'data'),
+      data: path.resolve(__dirname, 'assets/data'),
       utils: path.resolve(__dirname, 'src/utils'),
     },
     extensions: ['.js', '.jsx'],
@@ -83,7 +83,7 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, 'data'),
+        from: path.resolve(__dirname, 'assets/data'),
         to: 'data',
       },
     ]),
