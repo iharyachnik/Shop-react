@@ -27,7 +27,9 @@ class Notification extends React.Component {
           <Link to='/cart'>
             <Button title='View cart' />
           </Link>
-          <Button title='Checkout' />
+          <Link to='/checkout'>          
+            <Button title='Checkout' />
+          </Link>
         </div>
       </div>
     );

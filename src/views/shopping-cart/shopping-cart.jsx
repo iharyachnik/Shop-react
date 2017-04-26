@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router';
 
 import Layout from 'components/layout/layout';
 import EmptyShoppingCart from 'views/shopping-cart/empty/empty-shopping-cart';
@@ -50,7 +51,9 @@ class ShoppingCart extends React.Component {
             }
           </div>
           <div className='shopping-cart__checkout'>
-            <Button title='Checkout' />
+            <Link to='/checkout'>
+              <Button title='Checkout' />
+            </Link>
             <div>
               Total:
               <span>{price}</span>
