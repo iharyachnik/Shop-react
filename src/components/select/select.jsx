@@ -1,3 +1,5 @@
+import classnames from 'classnames';
+
 import './select.scss';
 
 const Select = (props) => {
@@ -6,15 +8,18 @@ const Select = (props) => {
     options,
     selectedValue,
     containerClassName,
+    className,
     onChange,
     name,
   } = props;
+
+  const selectClassName = classnames('select', className);
 
   return (
     <div className={containerClassName}>
       <label>{label}</label>
       <select
-        className='select'
+        className={selectClassName}
         value={selectedValue}
         onChange={onChange}
         name={name}

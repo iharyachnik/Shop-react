@@ -6,6 +6,8 @@ import NotFound from 'components/not-found/not-found';
 import Select from 'components/select/select';
 import Button from 'components/button/button';
 
+import { addToCart } from 'actions/shopping-cart';
+
 import { formatPrice } from 'utils';
 import { SIZE_CONSTANTS, QUANTITY_CONSTANTS } from 'config/details.constants'
 
@@ -33,7 +35,7 @@ class Details extends React.Component {
     }
 
     const { size: selectedSize, quantity: selectedQuantity } = this.state;
-    const { params: { category: category } } = this.props;
+    const { params: { category: category }, addToCart } = this.props;
 
     const price = formatPrice(item.getPrice());
     const unescapedDescription = this.unescapeText(item.getDescription());
@@ -76,7 +78,9 @@ class Details extends React.Component {
               <h2>Description</h2>
               <p dangerouslySetInnerHTML={{ __html: unescapedDescription }} />
             </div>
-            <div>
+            <div
+              onClick={() => addToCart(item, selectedSize, selectedQuantity)}
+            >
               <Button title='Add to cart' />
             </div>
           </div>
@@ -111,5 +115,8 @@ export default connect(
     return {
       item: Products.getItem(category, id),
     };
-  }
+  },
+  dispatch => bindActionCreators({
+    addToCart,
+  }, dispatch)
 )(Details);

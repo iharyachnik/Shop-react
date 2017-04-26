@@ -1,11 +1,48 @@
 .shopping-cart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: gray;
   font-size: 0.85rem;
+  margin: 0 auto;
+  padding: 0 24px 48px 24px;
+  max-width: 900px;
+
+  &--empty {
+    color: gray;
+  }
 
   &__icon {
     fill: gray;
+  }
+
+  &__header {
+    text-align: center;
+
+    h1 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0 0 4px 0;
+    }
+
+    span {
+      color: gray;
+      font-size: 0.8rem;
+    }
+  }
+
+  &__list {
+    margin: 40px 0;
+  }
+
+  &__checkout {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    div {
+      font-size: 13px;
+      font-weight: bold;
+
+      span {
+        margin: 0 60px 0 20px;
+      }
+    }
   }
 }
