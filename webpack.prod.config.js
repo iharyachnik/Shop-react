@@ -82,6 +82,9 @@ module.exports = {
         to: 'data',
       },
     ]),
-    new FaviconsWebpackPlugin('images/shop-icon.png')
+    new FaviconsWebpackPlugin({
+      logo: 'images/shop-icon.png',
+      prefix: 'build/',
+    })
   ],
 };
