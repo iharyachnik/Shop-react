@@ -1,0 +1,14 @@
+.input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: black;
+  font-size: 1rem;
+  padding: 8px 0;
+  outline: none;
+  width: 100%;
+
+  &-container {
+    margin: 20px 0;
+    flex-grow: 1;
+  }
+}

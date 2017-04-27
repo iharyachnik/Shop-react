@@ -1,0 +1,14 @@
+.checkout-summary {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &--total {
+      margin: 30px 0;
+    }
+  }
+}
