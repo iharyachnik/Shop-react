@@ -8,6 +8,20 @@ import CrossIcon from 'images/cross.svg';
 import './notification.scss';
 
 class Notification extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleDocumentClick = this.handleDocumentClick.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.handleDocumentClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleDocumentClick);
+  }
+
   render() {
     const { onClose } = this.props;
 
@@ -27,12 +41,16 @@ class Notification extends React.Component {
           <Link to='/cart'>
             <Button title='View cart' />
           </Link>
-          <Link to='/checkout'>          
+          <Link to='/checkout'>
             <Button title='Checkout' />
           </Link>
         </div>
       </div>
     );
+  }
+
+  handleDocumentClick(e) {
+    this.props.onClose();
   }
 }
 
