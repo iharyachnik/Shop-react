@@ -9,17 +9,19 @@ const Select = (props) => {
     selectedValue,
     containerClassName,
     className,
+    arrowClassName,
     onChange,
     name,
   } = props;
 
-  const selectClassName = classnames('select', className);
+  const selectClass = classnames('select', className);
+  const arrowClass = classnames('select__arrow-down', arrowClassName);
 
   return (
     <div className={containerClassName}>
       <label>{label}</label>
       <select
-        className={selectClassName}
+        className={selectClass}
         value={selectedValue}
         onChange={onChange}
         name={name}
@@ -37,7 +39,7 @@ const Select = (props) => {
           })
         }
       </select>
-      <span className='select__arrow-down' />
+      <span className={arrowClass} />
     </div>
   );
 };

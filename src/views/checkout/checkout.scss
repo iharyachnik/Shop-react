@@ -45,5 +45,32 @@
     h2 {
       font-size: 0.8rem;
     }
+
+    &-select {
+      padding: 8px 24px 8px 0;
+
+      &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border-bottom: 1px solid #ccc;
+        flex: 1;
+        margin-bottom: 20px;
+        position: relative;
+
+        label {
+          font-size: 0.8rem;
+          line-height: 1.2rem;
+        }
+      }
+
+      &__arrow-down {
+        font-size: 1rem;
+
+        &:after {
+          transform: scaleY(0.6) translate(0, 0);
+        }
+      }
+    }
   }
 }

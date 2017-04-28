@@ -37,17 +37,20 @@ class Checkout extends React.Component {
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='Email'
+                  required={true}
                 />
               </div>
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='Phone Number'
+                  required={true}
                 />
               </div>
               <h2>Shipping Address</h2>
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='Address'
+                  required={true}
                 />
               </div>
               <div className='checkout-form-section__row'>
@@ -64,7 +67,15 @@ class Checkout extends React.Component {
                 />
               </div>
               <div className='checkout-form-section__row'>
-                <Input />
+                <Select
+                  options={COUNTRIES}
+                  selectedValue={COUNTRIES[0]}
+                  name='country'
+                  label='Country'
+                  containerClassName='checkout-form-select-container'
+                  className='checkout-form-select'
+                  arrowClassName='checkout-form-select__arrow-down'
+                />
               </div>
             </div>
             <div className='checkout-form-section checkout-form-section--padded'>
@@ -80,8 +91,23 @@ class Checkout extends React.Component {
                 />
               </div>
               <div className='checkout-form-section__row'>
-                <Input />
-                <Input />
+                <Select
+                  options={MONTHS}
+                  selectedValue={MONTHS[0]}
+                  name='expiry'
+                  label='Expiry'
+                  containerClassName='checkout-form-select-container'
+                  className='checkout-form-select'
+                  arrowClassName='checkout-form-select__arrow-down'
+                />
+                <Select
+                  options={YEARS}
+                  selectedValue={YEARS[0]}
+                  name='year'
+                  containerClassName='checkout-form-select-container'
+                  className='checkout-form-select'
+                  arrowClassName='checkout-form-select__arrow-down'
+                />
                 <Input
                   placeholder='CVV'
                 />
