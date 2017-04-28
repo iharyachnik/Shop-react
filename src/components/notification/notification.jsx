@@ -50,7 +50,7 @@ class Notification extends React.Component {
   }
 
   handleDocumentClick(e) {
-    if (!e.target.closest('.notification')) {
+    if (!e.target.closest('.notification, .details-description button')) {
       this.props.onClose();
     }
   }
