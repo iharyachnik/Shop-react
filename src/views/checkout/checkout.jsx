@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 
 import Layout from 'components/layout/layout';
@@ -7,6 +8,8 @@ import Input from 'components/input/input';
 import CheckoutSummary from 'views/checkout/summary/checkout-summary';
 import EmptyShoppingCart from 'views/shopping-cart/empty/empty-shopping-cart';
 import Select from 'components/select/select';
+
+import { clearCart } from 'actions/shopping-cart';
 
 import { COUNTRIES, MONTHS, YEARS } from 'config/checkout.constants';
 
@@ -35,7 +38,7 @@ class Checkout extends React.Component {
   }
 
   render() {
-    const { items, totalPrice } = this.props;
+    const { items, totalPrice, clearCart } = this.props;
 
     if (!items.size) {
       return (
@@ -168,7 +171,10 @@ class Checkout extends React.Component {
                 items={items}
                 totalPrice={totalPrice}
               />
-              <Link to='/checkout/success'>
+              <Link
+                to='/checkout/success'
+                onClick={() => clearCart()}
+              >
                 <Button title='Place order' />
               </Link>
             </div>
@@ -189,5 +195,8 @@ export default connect(
   ({ ShoppingCart }) => ({
     items: ShoppingCart.getItems(),
     totalPrice: ShoppingCart.getTotalPrice(),
-  })
+  }),
+  dispatch => bindActionCreators({
+    clearCart
+  }, dispatch)
 )(Checkout);

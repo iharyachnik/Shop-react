@@ -26,3 +26,10 @@ export const changeQuantity = (product, quantity, selectedSize) => dispatch => {
     selectedSize
   });
 };
+
+export const CLEAR_CART = 'CLEAR_CART';
+export const clearCart = () => dispatch => {
+  return dispatch({
+    type: CLEAR_CART,
+  });
+};

@@ -16,6 +16,9 @@ const createReducer = (state = initialState, action) => {
     case SHOPPING_CART_ACTIONS.CHANGE_QUANTITY:
       newState = newState.changeQuantity(action.product, action.quantity, action.selectedSize);
       break;
+    case SHOPPING_CART_ACTIONS.CLEAR_CART:
+      newState = initialState;
+      break;
     default:
       break;
   }
