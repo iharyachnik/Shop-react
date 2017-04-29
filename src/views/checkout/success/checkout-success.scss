@@ -1,0 +1,22 @@
+.checkout-success {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-size: 1.05rem;
+      font-weight: normal;
+      margin: 0 0 5px 0;
+    }
+
+    span {
+      font-size: 0.75rem;
+      margin: 10px 0;
+    }
+  }
+}

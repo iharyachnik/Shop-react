@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import Layout from 'components/layout/layout';
 import Button from 'components/button/button';
@@ -12,6 +13,27 @@ import { COUNTRIES, MONTHS, YEARS } from 'config/checkout.constants';
 import './checkout.scss';
 
 class Checkout extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      phone: '',
+      address: '',
+      city: '',
+      state: '',
+      zip: '',
+      country: COUNTRIES[0],
+      cardholderName: '',
+      cardNumber: '',
+      expiryMonth: MONTHS[0],
+      expiryYear: YEARS[0],
+      cvv: '',
+    };
+
+    this.inputHandler = this.inputHandler.bind(this);
+  }
+
   render() {
     const { items, totalPrice } = this.props;
 
@@ -20,6 +42,8 @@ class Checkout extends React.Component {
         <EmptyShoppingCart />
       );
     }
+
+    const { country, expiryMonth, expiryYear } = this.state;
 
     return (
       <Layout
@@ -37,44 +61,60 @@ class Checkout extends React.Component {
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='Email'
-                  required={true}
+                  name='email'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
               </div>
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='Phone Number'
-                  required={true}
+                  name='phone'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
               </div>
               <h2>Shipping Address</h2>
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='Address'
-                  required={true}
+                  name='address'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
               </div>
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='City'
+                  name='city'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
               </div>
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='State/Province'
+                  name='state'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
                 <Input
                   placeholder='Zip/Postal Code'
+                  name='zip'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
               </div>
               <div className='checkout-form-section__row'>
                 <Select
                   options={COUNTRIES}
-                  selectedValue={COUNTRIES[0]}
+                  selectedValue={country}
                   name='country'
                   label='Country'
                   containerClassName='checkout-form-select-container'
                   className='checkout-form-select'
                   arrowClassName='checkout-form-select__arrow-down'
+                  onChange={this.inputHandler}
                 />
               </div>
             </div>
@@ -83,33 +123,44 @@ class Checkout extends React.Component {
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='Cardholder Name'
+                  name='cardholderName'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
               </div>
               <div className='checkout-form-section__row'>
                 <Input
                   placeholder='Card Number'
+                  name='cardNumber'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
               </div>
               <div className='checkout-form-section__row'>
                 <Select
                   options={MONTHS}
-                  selectedValue={MONTHS[0]}
-                  name='expiry'
+                  selectedValue={expiryMonth}
+                  name='expiryMonth'
                   label='Expiry'
                   containerClassName='checkout-form-select-container'
                   className='checkout-form-select'
                   arrowClassName='checkout-form-select__arrow-down'
+                  onChange={this.inputHandler}
                 />
                 <Select
                   options={YEARS}
-                  selectedValue={YEARS[0]}
-                  name='year'
+                  selectedValue={expiryYear}
+                  name='expiryYear'
                   containerClassName='checkout-form-select-container'
                   className='checkout-form-select'
                   arrowClassName='checkout-form-select__arrow-down'
+                  onChange={this.inputHandler}
                 />
                 <Input
                   placeholder='CVV'
+                  name='cvv'
+                  onChange={this.inputHandler}
+                  type='text'
                 />
               </div>
               <h2>Order Summary</h2>
@@ -117,14 +168,20 @@ class Checkout extends React.Component {
                 items={items}
                 totalPrice={totalPrice}
               />
-              <div>
+              <Link to='/checkout/success'>
                 <Button title='Place order' />
-              </div>
+              </Link>
             </div>
           </form>
         </div>
       </Layout >
     );
+  }
+
+  inputHandler(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
 }
 

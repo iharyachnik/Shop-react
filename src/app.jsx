@@ -17,6 +17,7 @@ import ShoppingCart from 'views/shopping-cart/shopping-cart';
 import ProductList from 'components/product-list/product-list';
 import NotFound from 'components/not-found/not-found'
 import Checkout from 'views/checkout/checkout';
+import CheckoutSuccess from 'views/checkout/success/checkout-success';
 
 const store = createStore(
   combineReducers({
@@ -31,6 +32,7 @@ const routes = (
     <Route exact path='/' component={Home} />
     <Route path='/cart' component={ShoppingCart} />
     <Route path='/checkout' component={Checkout} />
+    <Route path='/checkout/success' component={CheckoutSuccess} />
     <Route path='/:category' component={ProductList} >
       <Route path=':id' component={Details} />
     </Route>
